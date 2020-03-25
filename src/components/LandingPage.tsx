@@ -51,4 +51,4 @@ function mapDispatchToProps(): ActionCreators {
     }
 }
 
-export default connect(mapStateToProps, logout)(LandingPage);
+export default connect(mapStateToProps, mapDispatchToProps)(LandingPage);

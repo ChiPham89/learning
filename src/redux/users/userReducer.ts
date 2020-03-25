@@ -5,7 +5,7 @@ import Action from "../action";
 export type UserState = {loggedInUser: User};
 
 const initialState:UserState = {
-    loggedInUser : null
+    loggedInUser : new User()
 }
 
 export const userReducer = function(state:UserState = initialState, action:Action):any {
@@ -20,7 +20,7 @@ export const userReducer = function(state:UserState = initialState, action:Actio
         case LOGOUT: {
             return {
                 ...state,
-                loggedInUser: null
+                loggedInUser: new User()
             }
         }
         default:

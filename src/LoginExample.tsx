@@ -10,7 +10,7 @@ class LoginExample extends React.Component<UserState,{}> {
     }
     
     render() {
-        const activePage:JSX.Element = this.props.loggedInUser == null ? (<Login/>) : (<div></div>);
+        const activePage:JSX.Element = this.props.loggedInUser.getUserName() === "" ? (<Login/>) : (<div></div>);
 
         return (
             <div>
