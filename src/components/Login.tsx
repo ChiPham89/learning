@@ -1,9 +1,23 @@
 import * as React from "react";
-import UserCredential from "../redux/users/userCredential";
 import { connect } from "react-redux";
-import { login } from "../redux/users/userActions";
+import UserCredential from "../redux/users/userCredential";
+import { login, LoginAction } from "../redux/users/userActions";
 
-class Login extends React.Component<{}, UserCredential> {
+interface OwnProps {
+
+}
+
+interface ConnectorProps {
+  
+}
+
+interface ActionCreators {
+  login: LoginAction
+}
+
+type LoginProps = OwnProps & ConnectorProps & ActionCreators;
+
+class Login extends React.Component<LoginProps, UserCredential> {
 
   constructor(props:any) {
     super(props);
@@ -45,4 +59,10 @@ class Login extends React.Component<{}, UserCredential> {
   }
 }
 
-export default connect(null, login)(Login);
+function mapDispatchToProps(): ActionCreators {
+  return {
+    login
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Login);

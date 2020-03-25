@@ -21,7 +21,9 @@ export class StoreUserInfoAction extends Action {
 
 export const storeUserInfo = (user: User):StoreUserInfoAction => new StoreUserInfoAction(user);
 
-export const login = (credential:UserCredential):any => {
+export type LoginAction = (credential:UserCredential) => Function;
+
+export const login:LoginAction = (credential:UserCredential):Function => {
   return function(dispatch:Function, getState:Function) {
     const user = UsersApi.login(credential);
     if (user) {
